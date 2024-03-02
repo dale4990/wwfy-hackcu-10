@@ -1,0 +1,19 @@
+body {
+    position: fixed;
+    /* height: 100vh; */
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.Video {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin:0;
+}
+
