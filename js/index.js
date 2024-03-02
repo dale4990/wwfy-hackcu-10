@@ -1,3 +1,8 @@
+// speechSynthesis.onvoiceschanged = function() {
+//     console.log(speechSynthesis.getVoices());
+// };
+
+voices2 = []
 function submitOnClick() {
     // Update `text` with the current value from the textbox
     text = document.getElementById('textbox').value;
@@ -6,11 +11,10 @@ function submitOnClick() {
     // Create a new instance of SpeechSynthesisUtterance with the updated `text`
     const utterance = new SpeechSynthesisUtterance(text);
 
-    // Optional: Attempt to set the voice to Aaron US if available
+    const voices = [];
+    voices2 = voices;
     speechSynthesis.onvoiceschanged = function() {
-    // Now it's safe to call speechSynthesis.getVoices()
-    // Optional: Set the voice to Aaron US if available
-    voices = speechSynthesis.getVoices();
+        voices = speechSynthesis.getVoices();
     };
     const aaronVoice = voices.find(voice => voice.name === "Aaron");
     if (aaronVoice) {
@@ -24,6 +28,7 @@ function submitOnClick() {
 
     // Speak the text
     speechSynthesis.speak(utterance);
+    console.log(voices2)
 }
 
 let submitButton = document.querySelector('#submit-button');
