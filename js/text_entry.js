@@ -1,10 +1,12 @@
-let text = "";
+localStorage.setItem("text", "");
 
 function submitOnClick() {
+    let text = localStorage.getItem("text");
     if (text === "") {
-        text = document.getElementById('textbox').value;
+        console.log(document.getElementById('textbox').value);
+        localStorage.setItem("text", document.getElementById('textbox').value);
     }
-    console.log(text);
+    console.log(localStorage.getItem("text"));
 }
 
 let submitButton = document.querySelector('#submit-button');
@@ -20,10 +22,12 @@ uploadButton.addEventListener("input", function() {
     
     fr.onload = () => {
       console.log(fr.result)
-      text = fr.result;
+      localStorage.setItem("text", fr.result);
+      console.log(localStorage.getItem("text"));
     }
     
     fr.onerror = () => {
       console.log(fr.error)
     }
+
 });
