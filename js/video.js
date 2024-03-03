@@ -32,9 +32,7 @@ function ttsOnLoad() {
 }
 
 
-window.addEventListener("load", () => {
-    ttsOnLoad(); 
-});
+window.addEventListener("pointerdown", ttsOnLoad);
 
 let overlayText = document.querySelector("#overlay-text");
 
