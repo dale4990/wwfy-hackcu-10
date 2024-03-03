@@ -21,10 +21,6 @@ function ttsOnLoad() {
         // console.log(utterance.voice);
     };
     console.log(voices);
-    // const aaronVoice = voices.find(voice => voice.name === "Aaron");
-    // if (aaronVoice) {
-    //     utterance.voice = aaronVoice;
-    // }
     console.log("printing utterance voice below")
     console.log(utterance.voice);
     // Optional: Set other properties
@@ -46,5 +42,6 @@ for (let i = 0; i < words.length; i+=wordsDisplayed) {
     }, i * msDelayed);
 }
 
-
-
+const videoSource = localStorage.getItem("videoSource");
+const videoElement = document.querySelector('.Video');
+videoElement.src = videoSource;

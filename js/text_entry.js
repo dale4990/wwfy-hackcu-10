@@ -12,6 +12,10 @@ function submitOnClick() {
     window.location.href = "Video.html";
 }
 
+function setVideoSource(src) {
+  localStorage.setItem("videoSource", src);
+}
+
 let submitButton = document.querySelector('#submit-button');
 submitButton.addEventListener("click", submitOnClick);
 
@@ -34,4 +38,12 @@ uploadButton.addEventListener("input", function() {
       console.log(fr.error)
     }
 
+});
+
+document.getElementById('option1').addEventListener("click", function() {
+  setVideoSource('videos/subwaysurfers1.mp4');
+});
+
+document.getElementById('option2').addEventListener("click", function() {
+  setVideoSource('videos/minecraft1.mp4');
 });
