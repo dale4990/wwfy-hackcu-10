@@ -33,6 +33,7 @@ function ttsOnLoad() {
 
 
 window.addEventListener("load", () => {
+    document.body.click();
     ttsOnLoad(); 
 });
 
@@ -82,8 +83,8 @@ function displayNextWords() {
     }
 }
 
+displayNextWords();
+
 const videoSource = localStorage.getItem("videoSource");
 const videoElement = document.querySelector('.Video');
 videoElement.src = videoSource;
-
-displayNextWords(); 
