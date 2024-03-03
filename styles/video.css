@@ -4,6 +4,7 @@ body {
     border: 0px;
     padding: 0px;
     margin: 0px;
+    background-color: #000;
 }
 
 .Video {
@@ -46,4 +47,5 @@ body {
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000; /* Simulate border effect with text-shadow */
+    word-wrap: break-word;
 }
