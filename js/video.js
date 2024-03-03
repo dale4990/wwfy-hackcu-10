@@ -1,20 +1,12 @@
 let fullText = localStorage.getItem("text");
-const wordsDisplayed = 6; 
-const msDelayed = 280; 
+const wordsDisplayed = 5; // Number of words to display at a time
+const msDelayed = 310; 
 const sentences = fullText.split(/[.!?]/).filter(sentence => sentence.trim() !== '');
 let currentSentenceIndex = 0;
 let currentWordIndex = 0;
 
 function ttsOnLoad() {
-    const currentSentence = sentences[currentSentenceIndex];
-
-    if (!currentSentence || currentSentence.split(' ').length === 1) {
-        currentSentenceIndex++;
-        ttsOnLoad();
-        return;
-    }
-
-    const utterance = new SpeechSynthesisUtterance(currentSentence);
+    const utterance = new SpeechSynthesisUtterance(sentences[currentSentenceIndex]);
 
     let voices = [];
     
@@ -25,12 +17,11 @@ function ttsOnLoad() {
     };
 
     utterance.pitch = 1;
-    utterance.rate = 1.1;
+    utterance.rate = 1;
     utterance.volume = 1;
 
     speechSynthesis.speak(utterance);
 }
-
 
 window.addEventListener("pointerdown", ttsOnLoad);
 
@@ -40,7 +31,7 @@ function speakWord(word) {
     const utterance = new SpeechSynthesisUtterance(word);
 
     utterance.pitch = 1;
-    utterance.rate = 1.1;
+    utterance.rate = 1;
     utterance.volume = 1;
 
     speechSynthesis.speak(utterance);
@@ -48,7 +39,6 @@ function speakWord(word) {
 
 function displayNextWords() {
     if (currentSentenceIndex >= sentences.length) {
-        videoElement.pause();
         return; 
     }
 
@@ -68,16 +58,7 @@ function displayNextWords() {
     currentSentenceIndex++;
     currentWordIndex = 0;
     
-    // If there are around 6 words left in the sentence, speak the remaining words
-    if (words.length - currentWordIndex <= 6) {
-        let remainingWords = words.slice(currentWordIndex).join(' ');
-        setTimeout(() => {
-            overlayText.textContent = remainingWords;
-            speakWord(remainingWords);
-        }, msDelayed * remainingWords.split(' ').length); 
-    } else {
-        setTimeout(displayNextWords, msDelayed * 2); 
-    }
+    setTimeout(displayNextWords, msDelayed * 2); // Add a delay between sentences
 }
 
 displayNextWords();
