@@ -27,7 +27,7 @@ body {
 .overlay {
     position: fixed;
     z-index: 1;
-    width: 300px;
+    width: 200px;
     align-self: center;
     padding-bottom: 200px;
 }
