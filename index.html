@@ -11,9 +11,12 @@
         <h1 id="app-title">Gamplay Study Tool.ai</h1>
     </div>
     <form id="textentry-form">
-        <!-- <label for="textbox">Enter text here:</label> -->
-        <textarea name="textbox" cols="40" rows="5" id="textbox" placeholder="Enter text here:"></textarea>
+        <textarea name="textbox" cols="40" rows="5" id="textbox" placeholder="Enter text here"></textarea>
     </form>
+
+    <div>
+        <h1 id="info-label"> OR </h1>
+    </div>
 
     <form id="upload-form">
         <label for="upload">
@@ -22,19 +25,25 @@
         <input name="upload" id="upload" type="file" accept="text/*" />
     </form>
 
+    <div>
+        <h1 id="info-label"> Select Video Format </h1>
+    </div>
+
     <div class="video-options">
         <div class="video-option" id="option1">
             <p>Subway Surfers</p>
             <img src="images/subsurf.jpg">
+            <input type="radio" name="video-option" value="subway_surfers" id="subway-radio">
         </div>
         <div class="video-option" id="option2">
             <p>Minecraft</p>
             <img src="images/minecraft.jpg">
+            <input type="radio" name="video-option" value="minecraft" id="minecraft-radio">
         </div>
     </div>
 
     <div class="button-container">
-        <input type="submit" value="Submit" id="submit-button">
+        <input type="submit" value="Generate Video" id="submit-button">
     </div>
 
 </body>

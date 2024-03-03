@@ -16,6 +16,14 @@ function setVideoSource(src) {
   localStorage.setItem("videoSource", src);
 }
 
+function selectRadio(option) {
+  if (option === 'subway_surfers') {
+      document.getElementById('subway-radio').checked = true;
+  } else if (option === 'minecraft') {
+      document.getElementById('minecraft-radio').checked = true;
+  }
+}
+
 let submitButton = document.querySelector('#submit-button');
 submitButton.addEventListener("click", submitOnClick);
 
@@ -41,9 +49,11 @@ uploadButton.addEventListener("input", function() {
 });
 
 document.getElementById('option1').addEventListener("click", function() {
+  selectRadio('subway_surfers');
   setVideoSource('videos/subwaysurfers1.mp4');
 });
 
 document.getElementById('option2').addEventListener("click", function() {
+  selectRadio('minecraft');
   setVideoSource('videos/minecraft1.mp4');
 });
