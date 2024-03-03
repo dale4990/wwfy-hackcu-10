@@ -33,7 +33,6 @@ function ttsOnLoad() {
 
 
 window.addEventListener("load", () => {
-    document.body.click();
     ttsOnLoad(); 
 });
 
